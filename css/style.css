@@ -1,0 +1,142 @@
+@import "responsive.ss";
+
+@font-face {
+    font-family: "Gothical";
+    src: url("../css/19783.ttf") format("truetype")
+}
+
+.container {
+    font-family: 'Gothical', sans-serif;
+    font-size: 2.5em;
+    margin: 0 auto;
+    padding: 10px 10px;
+    border-radius: 2px;
+    color: rgb(12, 12, 12);
+}
+.container_shadow {
+    -webkit-box-shadow: 1px 9px 13px 2px rgba(158,152,158,0.76);
+    -moz-box-shadow: 1px 9px 13px 2px rgba(158,152,158,0.76);
+    box-shadow: 1px 9px 13px 2px rgba(158,152,158,0.76);
+}
+.block {
+    padding: 20px;
+}
+.card {
+    padding: 15px 0;
+}
+.card__title {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.row {
+    margin-top: 10px;
+}
+.form__input {
+    font-family: 'Gothical', sans-serif;
+    position: relative;
+}
+.input__inLine {
+    font-family: 'Gothical', sans-serif;
+    width: 97%;
+    border: none;
+    border-bottom: 2px solid #9e9e9e;
+    outline: none;
+    height: 22px;
+    font-size: 0.9em;
+    padding: 5px 10px;
+}
+.input__inLine:focus {
+    font-family: 'Gothical', sans-serif;
+    border-bottom: 2px solid #52cc99;
+}
+.input__inLine:focus + .label{
+    font-family: 'Gothical', sans-serif;
+    opacity: 0;
+}
+.label {
+    font-family: 'Gothical', sans-serif;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+.label:focus {
+    font-family: 'Gothical', sans-serif;
+    opacity: 0;
+}
+.btn {
+    font-family: 'Gothical', sans-serif;
+    border: 1px solid #2a22a1;
+    border-radius: 2px;
+    width: 120px;
+    background: #400f80;
+    padding: 8px;
+    font-weight: 600;
+    color: #cfcfcf;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    text-transform: lowercase;
+    -webkit-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    -moz-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+}
+.btn:hover {
+    opacity: 0.6;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+.btn:active {
+    border: 1px solid white;
+    background: white;
+}
+.btn_clear:hover {
+    border: 1px solid pink;
+    background: rgb(153, 0, 26);
+}
+.collection {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.collection__item {
+    border: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    margin-bottom: 3px;
+    font-size: 0.95em;
+}
+.old-collection {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.old-collection__item {
+    border: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    margin-bottom: 3px;
+    font-size: 0.95em;
+}
+.delete-item {
+    color: #ac0505;
+    text-decoration: none;
+    outline: none;
+    font-size: 35px;
+    transition: color .3s ease;
+    float: right;
+}
+.check-item {
+    color:rgb(5, 165, 0);
+    text-decoration: none;
+    outline: none;
+    font-size: 35px;
+    transition: color .3s ease;
+    float: right;
+}
+.delete-item:hover {
+    opacity: .6;
+}
+#datepicker {
+    font-family: 'Gothical', sans-serif;
+    font-size: 30px;
+}
