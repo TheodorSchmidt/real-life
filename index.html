@@ -27,13 +27,43 @@
 					Создать квест
 				</span>
 			<div class="row">
-				<form id="taskForm" class="form">
+				<form id="questForm" class="form">
 					<div class="form__input">
-						<input id="task" type="text" name="task" class="input__inLine">
-						<label for="task" class="label">
-							новый квест
-						</label>
+						<input id="quest" type="text" name="quest" class="input__inLine" placeholder="новый квест">
 					</div>
+					<div class="form__input">
+						<textarea id="description" class="input__Text" placeholder="описание квеста"></textarea> 
+					</div>
+					<span class="form__input">
+						<select id="difficulty" name="difficulty" class="input__Select">
+							<option selected disabled value="0">Выберите сложность</option>
+							<option value="1">1 (Очень просто)</option>
+							<option value="2">2 (Просто)</option>
+							<option value="3">3 (Средне)</option>
+							<option value="4">4 (Сложно)</option>
+							<option value="5">5 (Очень Сложно)</option>
+						</select>
+					</span>
+					<span class="form__input">
+						<select id="importancy" name="importancy" class="input__Select">
+							<option selected disabled value="0">Выберите важность</option>
+							<option value="1">1 (Совсем не важно)</option>
+							<option value="2">2 (Не важно)</option>
+							<option value="3">3 (Средне)</option>
+							<option value="4">4 (Важно)</option>
+							<option value="5">5 (Очень важно)</option>
+						</select>
+					</span>
+					<span class="form__input">
+						<select id="motivation" name="motivation" class="input__Select">
+							<option selected disabled value="0">Выберите замотивированность</option>
+							<option value="1">1 (Совсем не хочу делать)</option>
+							<option value="2">2 (Не хочу делать)</option>
+							<option value="3">3 (Не очень хочу делать)</option>
+							<option value="4">4 (Хочу делать)</option>
+							<option value="5">5 (Очень хочу делать)</option>
+						</select>
+					</span>
 					<p>Крайний срок: <input type="text" id=datepicker></p>
 					<input type="submit" value="Добавить" class="btn btn_add">
 				</form>

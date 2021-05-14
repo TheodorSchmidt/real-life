@@ -1,40 +1,54 @@
 "use strict";
-const form = document.querySelector('#taskForm');
-const taskList = document.querySelector('.collection');
+const form = document.querySelector('#questForm');
+const questList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.btn_clear');
 const filter = document.querySelector('#filter');
-const taskInput = document.querySelector('#task');
-const oldTaskList = document.querySelector('.old-collection');
+const questName = document.querySelector('#quest');
+const questDescription = document.querySelector('#description');
+const questDifficulty = document.querySelector('#difficulty');
+const questImportancy = document.querySelector('#importancy');
+const questDeadline = document.querySelector('#datepicker');
+const questMotivation = document.querySelector('#motivation');
+const oldQuestList = document.querySelector('.old-collection');
+
+let balance = 0;
+
+function Quest(qName, qDif, qImp, qMot) {
+	this.name = qName;
+	this.difficulty = qDif;
+	this.importancy = qImp;
+	this.motivation = qMot;
+}
 
 loadEventListeners();
 
 function loadEventListeners() {
-	document.addEventListener('DOMContentLoaded', getTasks);
+	document.addEventListener('DOMContentLoaded', getQuests);
 
-	form.addEventListener('submit', addTask);
+	form.addEventListener('submit', addQuest);
 
-	taskList.addEventListener('click', removeTask);
+	questList.addEventListener('click', removeQuest);
 	
-	taskList.addEventListener('click', doneTask);
+	questList.addEventListener('click', doneQuest);
 
-	clearBtn.addEventListener('click', clearTasks);
+	clearBtn.addEventListener('click', clearQuests);
 
-	filter.addEventListener('keyup', filterTasks);
+	filter.addEventListener('keyup', filterQuests);
 }
 
-function getTasks() {
-	let tasks;
+function getQuests() {
+	let quests;
 
-	if(localStorage.getItem('tasks') === null) {
-		tasks = [];
+	if(localStorage.getItem('quests') === null) {
+		quests = [];
 	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
+		quests = JSON.parse(localStorage.getItem('quests'));
 	}
 
-	tasks.forEach(function (task) {
+	quests.forEach(function (quest) {
 		const li = document.createElement('li');
 		li.className = 'collection__item';
-		li.appendChild(document.createTextNode(task));
+		li.appendChild(document.createTextNode(quest));
 		const check = document.createElement('a');
 		check.className = 'check-item';
 		check.innerHTML = '<i class="fa fa-check"></i>'; 
@@ -43,17 +57,31 @@ function getTasks() {
 		cross.innerHTML = '<i class="fa fa-remove"> </i>';
 		li.appendChild(cross);
 		li.appendChild(check);
-		taskList.appendChild(li);
+		questList.appendChild(li);
 	});
 }
 
-function addTask(e) {
-	if(taskInput.value === '') {
-		alert('Напишите задачу');
+function addQuest(e) {
+	if(questName.value === '' || questDifficulty.value === '0' || questImportancy.value === '0' || questMotivation.value === '0') {
+		alert('Не введено название задачи или не выбрана одна из характеристик (сложность, важность, замотивированность)');
 	} else {
+		let quest = new Quest(questName.value, questDifficulty.value, questImportancy.value, questMotivation.value);
+		if (questDescription.value != '') {
+			quest.description = questDescription.value;
+		}
+		if (questDeadline.value != '') {
+			quest.deadline = questDeadline.value;
+		}
+		console.log(quest);
 		const li = document.createElement('li');
 		li.className = 'collection__item';
-		li.appendChild(document.createTextNode(taskInput.value));
+		li.appendChild(document.createTextNode(quest.name));
+		if (quest.description != undefined) {
+			const textdscr = document.createElement('div');
+			textdscr.className = 'input__Text';
+			textdscr.innerHTML = `${quest.description.split('\n').join('<br>')}`;
+			li.appendChild(textdscr);
+		}
 		const check = document.createElement('a');
 		check.className = 'check-item';
 		check.innerHTML = '<i class="fa fa-check"> </i>'; 
@@ -63,66 +91,64 @@ function addTask(e) {
 		li.appendChild(cross);
 		li.appendChild(check);
 
-		taskList.appendChild(li);
+		questList.appendChild(li);
 
-		storeTaskInLs(taskInput.value);
+		storeQuestsInLs(questName.value);
 
-		taskInput.value = '';
+		questName.value = '';
 
 		e.preventDefault();
 	}
 }
 
-function storeTaskInLs(task) {
-	let tasks;
+function storeQuestsInLs(quest) {
+	let quests;
 
-	if(localStorage.getItem('tasks') === null) {
-		tasks = [];
+	if(localStorage.getItem('quests') === null) {
+		quests = [];
 	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
+		quests = JSON.parse(localStorage.getItem('quests'));
 	}
-	tasks.push(task);
+	quests.push(quest);
 
-	localStorage.setItem('tasks', JSON.stringify(tasks));
+	localStorage.setItem('quests', JSON.stringify(quests));
 }
 
-function removeTask(e) {
+function removeQuest(e) {
 	if(e.target.parentElement.classList.contains('delete-item')) {
-		console.log(localStorage.getItem('tasks'));
 		e.target.parentElement.parentElement.remove();
-		removeTaskFromLs(e.target.parentElement.parentElement.firstChild);	
-		console.log(localStorage.getItem('tasks'));
+		removeQuestFromLs(e.target.parentElement.parentElement.firstChild);	
 	}
 }
 
-function doneTask(e) {
+function doneQuest(e) {
 	if(e.target.parentElement.classList.contains('check-item')) {
 		console.log(e.target.parentElement.parentElement.firstChild);
 		e.target.parentElement.parentElement.remove();
-		removeTaskFromLs(e.target.parentElement.parentElement.firstChild);
+		removeQuestFromLs(e.target.parentElement.parentElement.firstChild);
 	}
 }
 
-function removeTaskFromLs(taskItem) {
-	let tasks;
+function removeQuestFromLs(questItem) {
+	let quests;
 
-	if(localStorage.getItem('tasks') === null) {
-		tasks = [];
+	if(localStorage.getItem('quests') === null) {
+		quests = [];
 	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
+		quests = JSON.parse(localStorage.getItem('quests'));
 	}
-	tasks.forEach(function (task, index) {
-		if(taskItem.textContent === task) {
-			tasks.splice(index, 1);
+	quests.forEach(function (quest, index) {
+		if(questItem.textContent === quest) {
+			quests.splice(index, 1);
 		}
 	});
 
-	localStorage.setItem('tasks', JSON.stringify(tasks));
+	localStorage.setItem('quests', JSON.stringify(quests));
 }
 
-function clearTasks() {
-	while(taskList.firstChild) {
-		taskList.removeChild(taskList.firstChild);
+function clearQuests() {
+	while(questList.firstChild) {
+		questList.removeChild(questList.firstChild);
 	}
 
 	clearLs();
@@ -132,16 +158,16 @@ function clearLs() {
 	localStorage.clear();
 }
 
-function filterTasks(e) {
+function filterQuests(e) {
 	const filterText = e.target.value.toLowerCase();
 
 	document.querySelectorAll('.collection__item').forEach
-	(function(task) {
-		const filteredTask = task.firstChild.textContent;
-		if(filteredTask.toLowerCase().indexOf(filterText) !== -1) {
-			task.style.display = 'block';
+	(function(quest) {
+		const filteredQuest = quest.firstChild.textContent;
+		if(filteredQuest.toLowerCase().indexOf(filterText) !== -1) {
+			quest.style.display = 'block';
 		} else {
-			task.style.display = 'none';
+			quest.style.display = 'none';
 		}
 	});
 }

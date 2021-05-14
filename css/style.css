@@ -47,11 +47,47 @@
 }
 .input__inLine:focus {
     font-family: 'Gothical', sans-serif;
-    border-bottom: 2px solid #52cc99;
+    border-bottom: 2px solid #450ae9;
 }
 .input__inLine:focus + .label{
     font-family: 'Gothical', sans-serif;
     opacity: 0;
+}
+.input__Text {
+    font-family: 'Gothical', sans-serif;
+    width: 97%;
+    border: none;
+    border-bottom: 2px solid #9e9e9e;
+    outline: none;
+    height: 22px;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    width: 400px;
+    height: 200px;
+}
+.input__Text:focus {
+    font-family: 'Gothical', sans-serif;
+    border-bottom: 2px solid #450ae9;
+}
+.input__Text:focus + .label{
+    font-family: 'Gothical', sans-serif;
+    opacity: 0;
+}
+.input__Select {
+    font-family: 'Gothical', sans-serif;
+    width: 97%;
+    border: none;
+    border-bottom: 2px solid #9e9e9e;
+    outline: none;
+    height: 22px;
+    font-size: 0.6em;
+    padding: 5px 10px;
+    width: 250px; 
+    height: 40px;
+}
+.input__Select:focus {
+    font-family: 'Gothical', sans-serif;
+    border-bottom: 2px solid #450ae9;
 }
 .label {
     font-family: 'Gothical', sans-serif;
