@@ -13,8 +13,6 @@ const oldQuestList = document.querySelector('.old-collection');
 
 const balanceValue = document.querySelector('#balance');
 
-let balance = 0;
-
 function Quest(qName, qDif, qImp, qMot) {
 	this.name = qName;
 	this.difficulty = qDif;
@@ -43,17 +41,24 @@ function loadEventListeners() {
 
 function getQuests() {
 	let quests;
+	let balance;
 
-	if(localStorage.getItem('quests') === null) {
+	if (localStorage.getItem('quests') === null) {
 		quests = [];
 	} else {
 		quests = JSON.parse(localStorage.getItem('quests'));
+	}
+	if (localStorage.getItem('balance') === null) {
+		balance = 0;
+	} else {
+		balance = JSON.parse(localStorage.getItem('balance'));
 	}
 	console.log(balance);
 	balanceValue.innerHTML = `Текущий баланс: ${balance}$`;
 
 	quests.forEach(function (quest) {
-		printQuest(quest)});
+		printQuest(quest);
+	});
 }
 
 function addQuest(e) {
@@ -97,6 +102,18 @@ function storeQuestsInLs(quest) {
 	localStorage.setItem('quests', JSON.stringify(quests));
 }
 
+function storeBalanceInLs(value) {
+	let balance;
+	if (localStorage.getItem('balance') === null) {
+		balance = 0;
+	} else {
+		balance = JSON.parse(localStorage.getItem('balance'));
+	}
+	balance += value;
+	localStorage.setItem('balance', JSON.stringify(balance));
+}
+
+
 function removeQuest(e) { //удаляем квест, не сохраняем в журнале
 	if(e.target.parentElement.classList.contains('delete-item')) {
 		e.target.parentElement.parentElement.remove();
@@ -122,8 +139,7 @@ function removeQuestFromLs(questItem, flag) {
 	quests.forEach(function (quest, index) {
 		if(questItem.textContent === quest.name) {
 			if (flag == true) {
-				balance += quest.reward;
-				balanceValue.innerHTML = `Текущий баланс: ${balance}$`;
+				storeBalanceInLs(quest.reward);
 			}
 			quests.splice(index, 1);
 		}
