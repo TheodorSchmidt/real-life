@@ -29,7 +29,7 @@
 		<a href="#perksList">Навыки</a>
 		<a href="#journal">Журнал</a>
 		<a href="#manual">Справка</a>
-		<span>Balance: 300$</span>
+		<span id="balance">Текущий баланс: 0$</span>
 	</div>
 	<div class="block">
 		<div class="card card_content">
@@ -47,31 +47,31 @@
 					<span class="form__input">
 						<select id="difficulty" name="difficulty" class="input__Select">
 							<option selected disabled value="0">Выберите сложность</option>
-							<option value="1">1 (Очень просто)</option>
-							<option value="2">2 (Просто)</option>
-							<option value="3">3 (Средне)</option>
-							<option value="4">4 (Сложно)</option>
-							<option value="5">5 (Очень Сложно)</option>
+							<option value="10">1 (Очень просто)</option>
+							<option value="50">2 (Просто)</option>
+							<option value="100">3 (Средне)</option>
+							<option value="250">4 (Сложно)</option>
+							<option value="500">5 (Очень Сложно)</option>
 						</select>
 					</span>
 					<span class="form__input">
 						<select id="importancy" name="importancy" class="input__Select">
 							<option selected disabled value="0">Выберите важность</option>
-							<option value="1">1 (Совсем не важно)</option>
-							<option value="2">2 (Не важно)</option>
-							<option value="3">3 (Средне)</option>
-							<option value="4">4 (Важно)</option>
-							<option value="5">5 (Очень важно)</option>
+							<option value="0.25">1 (Совсем не важно)</option>
+							<option value="0.5">2 (Не важно)</option>
+							<option value="1">3 (Средне)</option>
+							<option value="2">4 (Важно)</option>
+							<option value="4">5 (Очень важно)</option>
 						</select>
 					</span>
 					<span class="form__input">
 						<select id="motivation" name="motivation" class="input__Select">
 							<option selected disabled value="0">Выберите замотивированность</option>
-							<option value="1">1 (Совсем не хочу делать)</option>
+							<option value="4">1 (Совсем не хочу делать)</option>
 							<option value="2">2 (Не хочу делать)</option>
-							<option value="3">3 (Не очень хочу делать)</option>
-							<option value="4">4 (Хочу делать)</option>
-							<option value="5">5 (Очень хочу делать)</option>
+							<option value="1">3 (Не очень хочу делать)</option>
+							<option value="0.5">4 (Хочу делать)</option>
+							<option value="0.25">5 (Очень хочу делать)</option>
 						</select>
 					</span>
 					<p>Крайний срок: <input type="text" id=datepicker></p>
