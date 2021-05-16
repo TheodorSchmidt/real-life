@@ -19,7 +19,8 @@
     box-shadow: 1px 9px 13px 2px rgba(158,152,158,0.76);
 }
 .block {
-    padding: 20px;
+    padding: 20px; 
+    margin-top: 35px;
 }
 .card {
     padding: 15px 0;
@@ -105,10 +106,10 @@
     border: 1px solid #2a22a1;
     border-radius: 2px;
     width: 120px;
-    background: #400f80;
+    background: #2a22a1;
     padding: 8px;
     font-weight: 600;
-    color: #cfcfcf;
+    color: #ffffff;
     font-size: 30px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -119,8 +120,8 @@
     box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
 }
 .btn:hover {
-    opacity: 0.6;
-    transition-duration: 0.3s;
+    color: rgb(255, 7, 7);
+    background: #000000;
     cursor: pointer;
 }
 .btn:active {
@@ -175,4 +176,32 @@
 #datepicker {
     font-family: 'Gothical', sans-serif;
     font-size: 30px;
+}
+
+.nav {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #2a22a1;
+}
+.nav a {
+    float: left;
+    padding: 10px 57px;
+    display: block;
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Gothical', sans-serif;
+}
+.nav span {
+    float: left;
+    padding: 10px 55px;
+    display: block;
+    color: rgb(40, 206, 7);
+    font-size: 36px;
+    font-family: 'Gothical', sans-serif;
+}
+.nav a:hover {
+    color: rgb(255, 7, 7);
+    background: #000000;
 }

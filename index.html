@@ -20,10 +20,20 @@
   	</script>
 </head>
 <body>
+ 
 <div class="container container_shadow">
+	<div class="nav">
+		<a href="#createQuest">Создать квест</a>
+		<a href="#questList">Список квестов</a>
+		<a href="#tavern">Таверна</a>
+		<a href="#perksList">Навыки</a>
+		<a href="#journal">Журнал</a>
+		<a href="#manual">Справка</a>
+		<span>Balance: 300$</span>
+	</div>
 	<div class="block">
 		<div class="card card_content">
-				<span class="card__title">
+				<span id="createQuest" class="card__title">
 					Создать квест
 				</span>
 			<div class="row">
@@ -70,7 +80,7 @@
 			</div>
 		</div>
 		<div class="card card__action">
-				<span class="card__title">
+				<span id="questList" class="card__title">
 					Список квестов
 				</span>
 			<div class="row">
@@ -84,8 +94,23 @@
 		</ul>
 		<button type="reset" class="btn btn_clear">Очистить все</button>
 		<div class="card card__action">
-			<span class="card__title">
-				Выполненные квесты
+			<span id="tavern" class="card__title">
+				Таверна
+			</span>
+		</div>
+		<div class="card card__action">
+			<span id="perksList" class="card__title">
+				Навыки
+			</span>
+		</div>
+		<div class="card card__action">
+			<span id="journal" class="card__title">
+				Журнал
+			</span>
+		</div>
+		<div class="card card__action">
+			<span id="manual" class="card__title">
+				Справка
 			</span>
 		</div>
 		<ul class="old-collection">
