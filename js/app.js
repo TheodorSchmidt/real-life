@@ -206,7 +206,7 @@ function printQuest(quest) {
 function calcDiffDays(date) {
 	let today = new Date();
 	let deadline = new Date(date);
-	let timeDiff = Math.abs(deadline.getTime() - today.getTime());
+	let timeDiff = deadline.getTime() - today.getTime();
 	return (Math.ceil(timeDiff / (1000 * 3600 * 24)));
 }
 
@@ -217,20 +217,20 @@ function printDeadline(quest) {
 	if (diffDays < 0) {
 		dline.style.cssText = "color: rgb(206, 0, 0); font-size: 24px";
 		if (diffDays <= -1 && diffDays > -3) {
-			dline.innerHTML = `${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 10%)`;
+			dline.innerHTML = `<br> ${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 10%)`;
 			newDateModif(quest, 0.9);
 		} else if (diffDays <= -3 && diffDays > -7) {
-			dline.innerHTML = `${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 30%)`;
+			dline.innerHTML = `<br> ${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 30%)`;
 			newDateModif(quest, 0.7);
 		} else if (diffDays <= -7 && diffDays > -14) {
-			dline.innerHTML = `${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 40%)`;
+			dline.innerHTML = `<br> ${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 40%)`;
 			newDateModif(quest, 0.6);
 		} else if (diffDays <= -14 && diffDays > -28) {
-			dline.innerHTML = `${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 60%)`;
+			dline.innerHTML = `<br> ${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 60%)`;
 			newDateModif(quest, 0.4);
 		} else if (diffDays <= -28) {
 			newDateModif(quest, 0.2);
-			dline.innerHTML = `${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 80%)`;
+			dline.innerHTML = `<br> ${deadline} (просрочено на ${Math.abs(diffDays)} дней, текущий штраф 80%)`;
 		}
 	} else if (diffDays >= 0 && diffDays < 7) {
 		dline.style.cssText = "color: rgb(221, 217, 0); font-size: 24px";
