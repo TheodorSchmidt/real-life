@@ -24,7 +24,11 @@
     margin-top: 35px;
 }
 .card {
-    padding: 15px 0;
+    padding: 15px 30px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    -moz-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
 }
 .card__title {
     text-transform: uppercase;
@@ -135,8 +139,8 @@
 }
 .collection {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
 }
 .collection__item {
     border: 1px solid #e0e0e0;
@@ -144,9 +148,10 @@
     margin-bottom: 3px;
     font-size: 0.95em;
     overflow: auto;
-    -webkit-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    background-color: #fffbd3
+    /* -webkit-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
     -moz-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
-    box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76); */
 }
 .old-collection {
     list-style: none;
@@ -160,11 +165,7 @@
     font-size: 0.95em;
 }
 .form {
-    padding: 10px 20px;
-    margin-bottom: 3px;
-    -webkit-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
-    -moz-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
-    box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    
 }
 .delete-item {
     color: #ac0505;
