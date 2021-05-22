@@ -106,7 +106,7 @@
     font-family: 'Gothical', sans-serif;
     border: 1px solid #2a22a1;
     border-radius: 2px;
-    width: 120px;
+    width: 180px;
     background: #2a22a1;
     padding: 8px;
     font-weight: 600;
@@ -159,6 +159,13 @@
     margin-bottom: 3px;
     font-size: 0.95em;
 }
+.form {
+    padding: 10px 20px;
+    margin-bottom: 3px;
+    -webkit-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    -moz-box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+    box-shadow: 0 9px 13px -2px rgba(158,152,158,0.76);
+}
 .delete-item {
     color: #ac0505;
     text-decoration: none;
@@ -166,6 +173,9 @@
     font-size: 35px;
     transition: color .3s ease;
     float: right;
+}
+.delete-item:hover {
+    opacity: .6;
 }
 .check-item {
     color:rgb(5, 165, 0);
@@ -175,7 +185,18 @@
     transition: color .3s ease;
     float: right;
 }
-.delete-item:hover {
+.check-item:hover {
+    opacity: .6;
+}
+.back-item {
+    color: #e4af00;
+    text-decoration: none;
+    outline: none;
+    font-size: 35px;
+    transition: color .3s ease;
+    float: right;
+}
+.back-item:hover {
     opacity: .6;
 }
 #datepicker {
