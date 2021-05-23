@@ -26,9 +26,9 @@
 		<a href="#createQuest">Создать квест</a>
 		<a href="#questList">Список квестов</a>
 		<a href="#tavern">Таверна</a>
-		<a href="#perksList">Навыки</a>
 		<a href="#journal">Журнал</a>
 		<a href="#manual">Справка</a>
+		<a id="clearAll" type="reset">Сбросить все</a>
 		<span id="balance">Текущий баланс: 0$</span>
 	</div>
 	<div class="block">
@@ -124,18 +124,18 @@
 					<span class="form__input">
 						<select id="restTime" name="restTime" class="input__Select">
 							<option selected disabled value="0">Выберите продолжительность</option>
-							<option value="1">1 час</option>
-							<option value="2">2 часа</option>
-							<option value="3">3 часа</option>
-							<option value="4">4 часа</option>
-							<option value="5">5 часов</option>
-							<option value="6">6 часов</option>
-							<option value="7">7 часов</option>
-							<option value="8">8 часов</option>
-							<option value="9">9 часов</option>
-							<option value="10">10 часов</option>
-							<option value="11">11 часов</option>
-							<option value="12">12 часов</option>
+							<option value="1">30 минут</option>
+							<option value="2">1 час</option>
+							<option value="3">1,5 часа</option>
+							<option value="4">2 часа</option>
+							<option value="5">2,5 часа</option>
+							<option value="6">3 часа</option>
+							<option value="7">3,5 часа</option>
+							<option value="8">4 часа</option>
+							<option value="9">4,5 часа</option>
+							<option value="10">5 часов</option>
+							<option value="11">5,5 часов</option>
+							<option value="12">6 часов</option>
 						</select>
 					</span> 
 					<div>
@@ -143,11 +143,6 @@
 					</div>
 				</form>
 			</div>
-		</div>
-		<div class="card card__action">
-			<span id="perksList" class="card__title">
-				Навыки
-			</span>
 		</div>
 		<div class="card card__action">
 			<span id="journal" class="card__title">
@@ -183,7 +178,6 @@
 		<ul class="old-collection">
 		</ul>
 	</div> 
-	<button id="clearAll" type="reset" class="btn btn_clear">Сбросить все</button>
 </div>
 
 

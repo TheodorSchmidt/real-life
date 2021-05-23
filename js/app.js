@@ -128,8 +128,11 @@ function takeRest(e) { //добавление отдыха
 
 function removeQuest(e) { //удаляем квест, не сохраняем в журнале
 	if(e.target.parentElement.classList.contains('delete-item')) {
-		e.target.parentElement.parentElement.remove(); 
-		removeQuestFromLs(e.target.parentElement.parentElement.firstChild.nextSibling.firstChild, false);	
+		const fl = confirm('Вы уверены, что хотите удалить задание?');
+		if (fl) {
+			e.target.parentElement.parentElement.remove(); 
+			removeQuestFromLs(e.target.parentElement.parentElement.firstChild.nextSibling.firstChild, false);
+		}
 	}
 }
 
@@ -158,31 +161,34 @@ function backNote(e) { //откат операции из журнала
 }
 
 function clearJournal() { //очистка журнала
-	let quests;
-	if(localStorage.getItem('quests') === null) {
-		quests = [];
-	} else {
-		quests = JSON.parse(localStorage.getItem('quests'));
-	}
-	quests.forEach(function (quest, index) {
-		if (quest.completed == true) {
-			quests.splice(index, 1);
-		} 
-	});	
-	localStorage.setItem('quests', JSON.stringify(quests));
+	const fl = confirm("Вы уверены, что хотите очистить журнал?");
+	if (fl) {
+		let quests;
+		if(localStorage.getItem('quests') === null) {
+			quests = [];
+		} else {
+			quests = JSON.parse(localStorage.getItem('quests'));
+		}
+		quests.forEach(function (quest, index) {
+			if (quest.completed == true) {
+				quests.splice(index, 1);
+			} 
+		});	
+		localStorage.setItem('quests', JSON.stringify(quests));
 	
-	let notes; 
-	if(localStorage.getItem('notes') === null) {
+		let notes; 
+		if(localStorage.getItem('notes') === null) {
+			notes = [];
+		} else {
+			notes = JSON.parse(localStorage.getItem('notes'));
+		}
 		notes = [];
-	} else {
-		notes = JSON.parse(localStorage.getItem('notes'));
-	}
-	notes = [];
-	localStorage.setItem('notes', JSON.stringify(notes));
+		localStorage.setItem('notes', JSON.stringify(notes));
 
-	getQuests();
-	getJournal();
-	window.location.reload();
+		getQuests();
+		getJournal();
+		window.location.reload();
+	}
 }
 
 
@@ -441,10 +447,13 @@ function clearLs() { //очистка всего локального храни
 }
 
 function clearQuests() {
-	while(questList.firstChild) {
-		questList.removeChild(questList.firstChild);
-	}
-	clearLs();
+	const fl = confirm('Вы уверены, что хотите удалить все данные?');
+	if (fl) {
+		while(questList.firstChild) {
+			questList.removeChild(questList.firstChild);
+		}
+		clearLs();
+	}	
 }
 
 //фильтрация квестов
